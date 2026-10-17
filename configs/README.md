@@ -1,7 +1,8 @@
-# Training configurations of the 160 headline checkpoints
+# Training configurations of 160 fingerprint detector runs
 
-One directory per trained run (16 configurations × 10 seeds), copied unchanged from the authors' run
-records:
+The records comprise 120 principal detector runs and 40 supplemental NPR runs, with ten seeds per
+configuration (16 detector × protocol × policy configurations). One directory per trained run, copied
+unchanged from the authors' run records:
 
 - `config_resolved.yaml` — the fully resolved training configuration (data manifest path relative to the
   authors' data root, normalization arm `data.norm` where present — runs without the key are legacy-arm
@@ -12,7 +13,8 @@ records:
 - `metrics.csv` — per-epoch training loss and validation AUC.
 
 Layout: `configs/<EXPERIMENT>/<run>_s<seed>/`, where `<EXPERIMENT>` is the authors' internal experiment
-label of the run. Mapping to the paper's headline configurations:
+label of the run. Mapping to the paper's detector configurations (the NPR rows are the 40 supplemental
+runs; all other rows are the 120 principal runs):
 
 | Detector (`--model-type` in `inference/score_patch.py`) | Protocol | Policy | Run directory |
 |---|---|---|---|
@@ -24,7 +26,7 @@ label of the run. Mapping to the paper's headline configurations:
 | | P2 | legacy | `E025/bl_bcesupcon_tp2_s*` |
 | | P1 | fixed | `E027/e027_bcesupcon_tp1_div255_s*` |
 | | P2 | fixed | `E027/e027_bcesupcon_tp2_div255_s*` |
-| NPR, residual input (`npr`) | P1 | legacy | `E003/bl_npr_tp1_s*` |
+| NPR, residual input (`npr`), supplemental | P1 | legacy | `E003/bl_npr_tp1_s*` |
 | | P2 | legacy | `E027/e027_npr_tp2_minmax_s*` |
 | | P1 | fixed | `E027/e027_npr_tp1_div255_s*` |
 | | P2 | fixed | `E027/e027_npr_tp2_div255_s*` |

@@ -12,10 +12,10 @@ model weights.
 | Locked threshold, five deployment quantities, cluster bootstrap | `pr_attribution/deployment.py`; demo | runs on simulated scores |
 | Paired policy contrast ΔΔT / ΔΔB (reference estimator) | `pr_attribution/paired_bootstrap.py`; demo | runs on simulated scores |
 | Table 2 per-policy values (12 configurations × 2 policies × 4 quantities) | `scripts/table2_from_aggregates.py` | matches the paper's Table 2 in all 12 rows (to its printed 4 decimals) |
-| Figure 3 | `figures/fig3_policy_contrasts.py` | byte-identical to the paper's file with Matplotlib 3.10.6 |
-| Figure 4 | `figures/fig4_cross_domain.py` | byte-identical to the paper's file with Matplotlib 3.10.6 |
+| Figure 3 | `figures/fig3_policy_contrasts.py` | same plotted values as the paper's figure; with Matplotlib 3.10.6 the SVG is byte-identical to the paper's file (other formats differ only in rendering bytes) |
+| Figure 4 | `figures/fig4_cross_domain.py` | input identical to the paper's frozen data file; with Matplotlib 3.10.6 the SVG matches the paper's file except for font glyph outlines (installed font version) |
 | Detector architectures | `inference/score_patch.py` | all seven released model types build and run a forward pass on a synthetic 88 × 88 input (random weights) |
-| Training settings of the headline detectors | `configs/` | resolved configuration, selected epoch and validation AUCs of all 160 runs, copied unchanged from the run records |
+| Training settings of the 160 fingerprint detector runs (120 principal, 40 supplemental NPR) | `configs/` | resolved configuration, selected epoch and validation AUCs of all 160 runs, copied unchanged from the run records |
 
 ## Cannot be reproduced from this repository
 

@@ -19,7 +19,7 @@ paths, values or identifiers from the excluded material.
 | Dataset-building code and data manifests | contain local paths, subject indices and dataset provenance records |
 | Training and evaluation drivers of the research code | tied to private data paths and per-image score files; not runnable without them |
 | Face-study and public-pairing study code | depend on third-party corpora and their terms; not reviewed for release |
-| Paper sources, generated tables and macros | the paper is published by the journal; the macro audit is internal |
+| Paper sources, generated tables and macros | the manuscript is distributed through the journal process, not this repository; the macro audit is internal |
 | Credentials, tokens, keys, host names | never released (none found in this repository) |
 
 Kept privately and unchanged: every excluded file stays in the authors' research repository, including the

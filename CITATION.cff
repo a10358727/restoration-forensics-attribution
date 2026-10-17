@@ -1,25 +1,24 @@
 cff-version: 1.2.0
-message: "If you use this code or the aggregate results, please cite the paper below (reference to be completed on publication)."
-title: "Code and aggregate results for 'Evaluating Forensic Detectors After Image Restoration: A Deployment-Centric Attribution Framework'"
+message: "If you use this software or its aggregate results, please cite it using the metadata below."
+title: "restoration-forensics-attribution: evaluation code, training configurations and aggregate results for deployment-centric attribution of forensic-detector changes after image restoration"
+abstract: "Evaluation utilities, synthetic demonstrations, training configurations of 160 fingerprint detector runs and aggregate results accompanying the manuscript 'Evaluating Forensic Detectors After Image Restoration: A Deployment-Centric Attribution Framework' (prepared for submission to Pattern Recognition; not yet published)."
 type: software
 license: MIT
+version: "1.0.0"
+date-released: "2026-10-17"
 authors:
   - family-names: Hsu
     given-names: Mao-Hsiu
     affiliation: "Department of Electro-Optical Engineering, National Formosa University, Taiwan"
     email: mh.hsu@nfu.edu.tw
+    orcid: "https://orcid.org/0009-0002-3188-4374"
   - family-names: Shi
     given-names: Ying-Hong
     affiliation: "Department of Electro-Optical Engineering, National Formosa University, Taiwan"
+    orcid: "https://orcid.org/0009-0001-3728-6618"
 repository-code: "https://github.com/a10358727/restoration-forensics-attribution"
-preferred-citation:
-  type: article
-  title: "Evaluating Forensic Detectors After Image Restoration: A Deployment-Centric Attribution Framework"
-  authors:
-    - family-names: Hsu
-      given-names: Mao-Hsiu
-    - family-names: Shi
-      given-names: Ying-Hong
-  journal: "Pattern Recognition"
-  year: 2026
-  notes: "submitted; volume, pages and DOI to be added"
+keywords:
+  - forensic detection
+  - image restoration
+  - synthetic fingerprint detection
+  - operating-point evaluation

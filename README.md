@@ -1,10 +1,14 @@
 # Evaluating forensic detectors after image restoration — research code and aggregate results
 
-Code and aggregate results accompanying *Evaluating Forensic Detectors After Image Restoration: A
-Deployment-Centric Attribution Framework* (M.-H. Hsu, Y.-H. Shi; submitted to *Pattern Recognition*).
+Code and aggregate results accompanying the manuscript *Evaluating Forensic Detectors After Image
+Restoration: A Deployment-Centric Attribution Framework* (M.-H. Hsu, Y.-H. Shi), prepared for submission
+to *Pattern Recognition*.
 
-Released under the MIT licence (`LICENSE`). This repository contains the evaluation methods, the
-training configurations of the headline detectors, aggregate results, and the scripts that regenerate
+Released under the MIT licence (`LICENSE`), which covers the authors' code, documentation and aggregate
+results; the Python dependencies in `requirements.txt` keep their own licences and are not
+redistributed here. This repository contains the evaluation methods, the
+training configurations of 160 fingerprint detector runs (120 principal and 40 supplemental NPR runs),
+aggregate results, and the scripts that regenerate
 Figures 3–4 and Table 2 of the paper. It contains no fingerprint images, no per-image scores and no model
 weights (see `PUBLIC_RELEASE_EXCLUSIONS.md`).
 
@@ -41,7 +45,7 @@ retrained pipelines and is not the causal effect of the normalization alone.
 | `pr_attribution/deployment.py` | locked threshold at 1 % FPR, AUC, the five quantities, the cluster bootstrap |
 | `pr_attribution/paired_bootstrap.py` | bootstrap primitives of the paired analysis and a reference estimator of ΔΔT / ΔΔB |
 | `inference/score_patch.py` | detector definitions (parameter names match the trained checkpoints) and a patch-scoring script |
-| `configs/` | resolved training configuration, selection record and training curve of each of the 160 headline runs (16 configurations × 10 seeds); see `configs/README.md` |
+| `configs/` | resolved training configuration, selection record and training curve of each of the 160 fingerprint detector runs (120 principal and 40 supplemental NPR runs; 16 detector × protocol × policy configurations × 10 seeds); see `configs/README.md` |
 | `figures/` | scripts that regenerate Figures 3 and 4 of the paper from `data/aggregate/` |
 | `scripts/table2_from_aggregates.py` | recomputes the per-policy values of Table 2 |
 | `examples/synthetic_demo.py` | end-to-end run on synthetic, non-biometric data |
@@ -58,8 +62,9 @@ PyTorch and torchvision only for `inference/`). No GPU is needed for anything in
 pip install -r requirements.txt
 ```
 
-The figure scripts reproduce the paper's files byte for byte with Matplotlib 3.10.6; other Matplotlib
-versions produce the same figures with different file bytes.
+The figure scripts plot the frozen aggregate values unchanged. The paper's figure files were produced
+with Matplotlib 3.10.6; file bytes also depend on the Matplotlib version and the installed fonts, so a
+regenerated file can differ in font outlines or rasterization while the plotted values are identical.
 
 ## Reproduction instructions
 
@@ -70,6 +75,16 @@ versions produce the same figures with different file bytes.
 | `python figures/fig3_policy_contrasts.py` | Figure 3 (paired policy contrasts with their 95 % intervals) in `figures/output/` |
 | `python figures/fig4_cross_domain.py` | Figure 4 (fingerprint and face deployment changes) in `figures/output/` |
 | `python inference/score_patch.py --model-type … --norm … --ckpt … img.png` | detector scores — requires a trained checkpoint, which is **not** provided (see below) |
+
+## Reproducibility levels
+
+| Level | What it covers | Status in this repository |
+|---|---|---|
+| 1 — Result regeneration | Table 2 and Figures 3–4 of the paper, re-tabulated and re-plotted from the frozen aggregate results in `data/aggregate/` | supported; the bootstrap estimates are not recomputed |
+| 2 — Method demonstration | normalization policies, restoration operators, locked-threshold evaluation, the five deployment quantities and a reference implementation of the paired policy contrast, on synthetic, non-biometric data | supported; demonstrates the methods, does not reproduce the paper's results |
+| 3 — Full experimental reproduction | detector training, image scoring, locked thresholds, bootstrap intervals and paired contrasts from the original data | **not possible** from this repository: the 88 × 88 biometric corpus, per-image scores, subject-linked splits, detector weights, private data manifests and frozen scoring records are not released |
+
+No step of Levels 1–2 needs a GPU or any non-public file; after installing `requirements.txt` they run offline.
 
 ## Data limitations
 
@@ -88,7 +103,7 @@ refers to an individual image or participant.
 ## Model availability
 
 No trained weights are included. The inference script defines the detector architectures used in the
-paper, and `configs/` records how each headline checkpoint was trained; whether and when trained weights
+paper, and `configs/` records how each of the 160 checkpoints was trained; whether and when trained weights
 are released has not been decided. The D3 detector is not
 supported here: it depends on third-party code without a licence file and on CLIP weights obtained
 upstream. Third-party pretrained weights are never redistributed.
@@ -111,4 +126,5 @@ Protocols P1 / P2 are the two held-out-generator protocols of the paper.
 
 ## Citation
 
-Please cite the paper; a DOI will be added on publication.
+Please cite this software release using `CITATION.cff`. The accompanying manuscript has not been
+published; no article DOI exists yet.
