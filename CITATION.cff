@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this code or the aggregate results, please cite the paper below (reference to be completed on publication)."
+title: "Code and aggregate results for 'Evaluating Forensic Detectors After Image Restoration: A Deployment-Centric Attribution Framework'"
+type: software
+license: MIT
+authors:
+  - family-names: Hsu
+    given-names: Mao-Hsiu
+    affiliation: "Department of Electro-Optical Engineering, National Formosa University, Taiwan"
+    email: mh.hsu@nfu.edu.tw
+  - family-names: Shi
+    given-names: Ying-Hong
+    affiliation: "Department of Electro-Optical Engineering, National Formosa University, Taiwan"
+repository-code: "https://github.com/a10358727/restoration-forensics-attribution"
+preferred-citation:
+  type: article
+  title: "Evaluating Forensic Detectors After Image Restoration: A Deployment-Centric Attribution Framework"
+  authors:
+    - family-names: Hsu
+      given-names: Mao-Hsiu
+    - family-names: Shi
+      given-names: Ying-Hong
+  journal: "Pattern Recognition"
+  year: 2026
+  notes: "submitted; volume, pages and DOI to be added"
